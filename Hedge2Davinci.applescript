@@ -1,7 +1,7 @@
 
 -- SETTINGS
-set pythonScript to ""
-set sourceVolumePath to ""
+set pythonScript to "/Users/wheheohu/Code/Hedge2Davinci/Hedge2Davinci.py"
+set sourceVolumePath to "/"
 ## if paths not set , pick file to continue
 --
 set FileCopyCompleted_destinationPath to ""
@@ -31,11 +31,11 @@ end if
 
 
 if FileCopyCompleted_destinationPath  start with sourceVolumePath then
-    display dialog do shell script "python3 "&pythonScript&" -vP "&FileCopyCompleted_destinationPath
+    display dialog (do shell script "python3 "&pythonScript&" -vP "&FileCopyCompleted_destinationPath) with title "Davinci Go"
 else
-    display dialog "Not Match \n"¬
-            &sourceVolumePath&"\n"¬
-            &FileCopyCompleted_destinationPath&"\n"
+    display dialog "No Match Path \n"¬
+            &"Source Volume is: "&sourceVolumePath&"\n"¬
+            &"Footage Path is: "&FileCopyCompleted_destinationPath&"\n" with title "No Match Path"
 end if
 
 

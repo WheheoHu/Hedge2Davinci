@@ -12,7 +12,7 @@ paser.add_argument('--volPath','-vP',default=' ',help="path to footage")
 paser.add_argument('--tskName','-tN',default='Untitled',help="task name used to create bin in davinci resolve")
 args=paser.parse_args()
 
-print("path is "+args.volPath+"\ntask name (bin name) is "+args.tskName)
+print("Import Footages to Davinci....\npath is "+args.volPath)
 
 def load_dynamic(module,path):
     loader = importlib.machinery.ExtensionFileLoader(module,path)
@@ -31,7 +31,7 @@ LOCALE_DAVINCI=bmd().scriptapp('Resolve','127.0.0.1')
 Current_Project=LOCALE_DAVINCI.GetProjectManager().GetCurrentProject()
 Project_Mediapool=Current_Project.GetMediaPool()  
 
-print(Current_Project.GetName())
+print("\nProject Name:"+Current_Project.GetName())
 
 Project_Mediapool.AddSubFolder(Project_Mediapool.GetRootFolder(), binName)
 timeline_clips=Project_Mediapool.ImportMedia(footagePath)
