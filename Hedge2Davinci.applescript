@@ -9,7 +9,7 @@ set FileCopyCompleted_destinationPath to ""
 
 if pythonScript is "" then
     tell application "Finder"
-        set pythonScript to entire contents of (choose file name with prompt "Choose python script location")
+        set pythonScript to entire contents of (choose file with prompt "Choose python script location")
     end tell
 end if
 if sourceVolumePath is "" then
