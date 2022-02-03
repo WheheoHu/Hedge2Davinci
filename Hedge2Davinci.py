@@ -8,7 +8,7 @@ from pkgutil import ModuleInfo
 des="help about Hedge to dacinvi script"
 paser=argparse.ArgumentParser(description=des)
 
-paser.add_argument('--volPath','-vP',default='/Users/wheheohu/Desktop/TestFiles',help="path to footage")
+paser.add_argument('--volPath','-vP',default=' ',help="path to footage")
 paser.add_argument('--tskName','-tN',default='Untitled',help="task name used to create bin in davinci resolve")
 args=paser.parse_args()
 

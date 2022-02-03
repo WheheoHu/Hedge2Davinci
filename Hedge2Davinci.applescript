@@ -1,7 +1,7 @@
 
 -- SETTINGS
-set pythonScript to "/Users/wheheohu/Code/Hedge2Davinci/Hedge2Davinci.py"
-set sourceVolumePath to "/"
+set pythonScript to ""
+set sourceVolumePath to ""
 ## if paths not set , pick file to continue
 --
 set FileCopyCompleted_destinationPath to ""
