@@ -1,4 +1,6 @@
+
 import importlib.machinery
+
 
 
 def load_dynamic(module, path):
@@ -13,8 +15,10 @@ class Bmd():
     APP_NAME='Resolve'
     LOCATION='127.0.0.1'
     
+    local_davinci = None
+    
     def __init__(self):
-        pass
+        self.local_davinci=self.init_davinci()
 
     def init_davinci(self):
         bmd_module= load_dynamic(module='fusionscript', path=self.PYLIB)
