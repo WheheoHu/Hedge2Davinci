@@ -17,8 +17,7 @@ print("Import Footages to Davinci....\npath is "+args.volPath)
 footagePath = args.volPath
 binName = os.path.basename(footagePath)
 
-
-LOCAL_DAVINCI = Bmd().local_davinci
+LOCAL_DAVINCI = Bmd.get_local_davinci() ##TODO change after api finished
 Current_Project = LOCAL_DAVINCI.GetProjectManager().GetCurrentProject()
 Project_Mediapool = Current_Project.GetMediaPool()
 
