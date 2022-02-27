@@ -1,12 +1,13 @@
 
 import importlib.machinery
+from os import path
 
 
 from pybmd.media_storage import MediaStorage
 from pybmd.project_manager import ProjectManager
 
 
-def load_dynamic(module, module_path):
+def load_dynamic(module, module_path: path):
     loader = importlib.machinery.ExtensionFileLoader(module, module_path)
     module = loader.load_module()
     return module
@@ -16,14 +17,14 @@ class Bmd:
 
     PYLIB = "/Applications/DaVinci Resolve/DaVinci Resolve.app/Contents/Libraries/Fusion/fusionscript.so"
     APP_NAME = 'Resolve'
-    LOCATION = '127.0.0.1'
+    IP_ADDRESS = '127.0.0.1'
 
     local_davinci = None
 
     def __init__(self):
         self.local_davinci = self.init_davinci()
 
-    def init_davinci(self, davinci_ip=LOCATION):
+    def init_davinci(self, davinci_ip=IP_ADDRESS):
         """init and return Davinci Resolve object
 
         Args:
@@ -48,7 +49,7 @@ class Bmd:
         """
         return self.local_davinci.DeleteLayoutPreset(preset_name)
 
-    def export_layout_preset(self, preset_name: str, preset_file_path) -> bool:
+    def export_layout_preset(self, preset_name: str, preset_file_path: path) -> bool:
         """Exports preset named preset_name to path preset_file_path.
 
         Args:
@@ -58,7 +59,7 @@ class Bmd:
         Returns:
             bool: result
         """
-        return self.local_davinci.ExportLayoutPreset(preset_name, preset_file_path)
+        return self.local_davinci.ExportLayoutPreset(preset_name, str(preset_file_path))
 
     def fusion(self):
         """Returns the Fusion object. Starting point for Fusion scripts."""
@@ -113,12 +114,12 @@ class Bmd:
         """
         return self.local_davinci.GetVersionString()
 
-    def import_layout_preset(self, preset_file_path: str, preset_name: str) -> bool:
+    def import_layout_preset(self, preset_file_path: path, preset_name: str) -> bool:
         """Imports preset from path 'preset_file_path'. 
             The optional argument 'preset_name' specifies how the preset shall be named.
             If not specified, the preset is named based on the filename.
         """
-        return self.local_davinci.ImportLayoutPreset(preset_file_path, preset_name)
+        return self.local_davinci.ImportLayoutPreset(str(preset_file_path), preset_name)
 
     def load_layout_preset(self, preset_name: str) -> bool:
         """Loads UI layout from saved preset named preset_name.

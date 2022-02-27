@@ -15,6 +15,6 @@ class MediaStorage:
             _local_davinci (Bmd.local_davinci): davinci object
         """        
         self.media_storage=_local_davinci.GetMediaStorage()  
-
-    #TODO Finish this
     
+    
+    #TODO Finish this
