@@ -19,7 +19,7 @@
 		"scope": "python",
 		"prefix": "ded",
 		"body": ["def ${2:method_name}(self,${3:arg1}):",
-				"    return self.${4:module_name}.${2/_([a-z])|^([a-z])/${1:/upcase}${2:/upcase}/gm}($5)"
+				"    return self.$TM_FILENAME_BASE.${2/_([a-z])|^([a-z])/${1:/upcase}${2:/upcase}/gm}($3)"
 		],
 		"description": "davinci python func"
 	}
