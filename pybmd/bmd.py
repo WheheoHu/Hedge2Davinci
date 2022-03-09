@@ -23,7 +23,10 @@ class Bmd:
 
     def __init__(self):
         self.local_davinci = self.init_davinci()
-
+        #TODO finish timeline export properties
+        self.EXPORT_AAF = self.local_davinci.EXPORT_AAF
+        self.EXPORT_AAF_NEW = self.local_davinci.EXPORT_AAF_NEW
+        self.EXPORT_DRT=self.local_davinci.EXPORT_DRT
     def init_davinci(self, davinci_ip=IP_ADDRESS):
         """init and return Davinci Resolve object
 
