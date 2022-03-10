@@ -22,6 +22,13 @@
 				"    return self.$TM_FILENAME_BASE.${2/_([a-z])|^([a-z])/${1:/upcase}${2:/upcase}/gm}($3)"
 		],
 		"description": "davinci python func"
+	},
+	"Davinci python func(return class)":{
+		"scope": "python",
+		"prefix": "dedc",
+		"body": ["def ${2:method_name}(self,$5${3:arg1}) -> ${4:ReturnType}:",
+				"    return $4(self.$TM_FILENAME_BASE.${2/_([a-z])|^([a-z])/${1:/upcase}${2:/upcase}/gm}($3))"
+		],
+		"description": "davinci python func (return class)"
 	}
-
 }
