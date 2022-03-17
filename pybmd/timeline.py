@@ -149,7 +149,7 @@ class Timeline():
     def set_name(self, timeline_name) -> bool:
         return self.timeline.SetName(timeline_name)
     
-    #TODO setting_name to Enum class
+    #TODO setting_name to data class
     def set_setting(self, setting_name: str, setting_value: str) -> bool:
         return self.timeline.SetSetting(setting_name, setting_value)
 
