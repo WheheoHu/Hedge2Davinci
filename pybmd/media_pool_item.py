@@ -1,4 +1,4 @@
-# TODO finish this
+
 
 from os import path
 from tkinter.tix import DirTree
