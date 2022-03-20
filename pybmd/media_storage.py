@@ -1,6 +1,5 @@
 
 from os import path
-from pathlib import Path
 from typing import TYPE_CHECKING, List
 
 from pybmd.media_pool_item import MediaPoolItem
@@ -20,8 +19,6 @@ class MediaStorage:
             _local_davinci (Bmd.local_davinci): davinci object
         """
         self.media_storage = _local_davinci.GetMediaStorage()
-
-    # TODO Finish this
 
     def add_clip_mattes_to_media_pool(self, media_pool_item: MediaPoolItem, paths: List[str], stero_eye: str = None) -> bool:
         return self.media_storage.AddClipMattesToMediaPool(media_pool_item, paths, stero_eye)
