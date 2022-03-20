@@ -1,5 +1,3 @@
-# TODO finish this
-
 from os import path
 from pathlib import Path
 from typing import Dict, List
