@@ -44,7 +44,8 @@ class MediaPool():
 
     def add_sub_folder(self, folder: Folder, name: str) -> Folder:
         return Folder(self.media_pool.AddSubFolder(folder, name))
-
+    
+    #BUG fix clips list input
     def append_to_timeline(self, clips: List[MediaPoolItem]) -> List[TimelineItem]:
         timeline_item_list = []
         for timeline_item in self.media_pool.AppendToTimeline(clips):
@@ -60,6 +61,7 @@ class MediaPool():
     def create_empty_timeline(self, name) -> Timeline:
         return Timeline(self.media_pool.CreateEmptyTimeline(name))
 
+    #BUG fix clips list input   
     def create_timeline_from_clips(self, name: str, clips: List[MediaPoolItem]) -> Timeline:
         return Timeline(self.media_pool.CreateTimelineFromClips(name, clips))
 
@@ -69,15 +71,19 @@ class MediaPool():
     def delete_clip_mattes(self, media_pool_item: MediaPoolItem, paths: List[str]) -> bool:
         return self.media_pool.DeleteClipMattes(media_pool_item, paths)
 
+    #BUG fix clips list input
     def delete_clips(self, clips: List[MediaPoolItem]) -> bool:
         return self.media_pool.DeleteClips(clips)
 
+    #BUG fix folder list input
     def delete_folders(self, subfolders: List[Folder]) -> bool:
         return self.media_pool.DeleteFolders(subfolders)
 
+    #BUG fix timeline list input
     def delete_timelines(self, timelines: List[Timeline]) -> bool:
         return self.media_pool.DeleteTimelines(timelines)
 
+    #BUG fix clips list input
     def export_metadata(self, file_name: str, clips: List[MediaPoolItem]) -> bool:
         return self.media_pool.ExportMetadata(file_name, clips)
 
@@ -114,17 +120,21 @@ class MediaPool():
     def import_timeline_from_file(self, file_path: path, import_option: TimelineImportOptions) -> Timeline:
         return Timeline(self.media_pool.ImportTimelineFromFile(str(file_path), asdict(import_option)))
 
+    #BUG fix clips list input
     def move_clips(self, clips: List[MediaPoolItem], target_folder: Folder) -> bool:
         return self.media_pool.MoveClips(clips, target_folder)
 
+    #BUG fix folder list input
     def move_folders(self, folders: List[Folder], target_folder: Folder) -> bool:
         return self.media_pool.MoveFolders(folders, target_folder)
 
+    #BUG fix clips list input
     def relink_clips(self, media_pool_items: List[MediaPoolItem], folder_path: path) -> bool:
         return self.media_pool.RelinkClips(media_pool_items, str(folder_path))
 
     def set_current_folder(self, folder: Folder) -> bool:
         return self.media_pool.SetCurrentFolder(folder)
 
+    #BUG fix clips list input
     def unlink_clips(self, media_pool_items: List[MediaPoolItem]) -> bool:
         return self.media_pool.UnlinkClips(media_pool_items)

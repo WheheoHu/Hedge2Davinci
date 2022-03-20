@@ -49,9 +49,11 @@ class Timeline():
     def apply_grade_from_drx(self, path: path, grade_mode: int, timeline_items: List[TimelineItem]) -> bool:
         return self.timeline.ApplyGradeFromDRX(str(path), grade_mode, timeline_items)
 
+    #BUG timelineitems should be origin resolve timelineitem
     def create_compound_clip(self, timeline_items: List[TimelineItem], clipinfo: dict) -> TimelineItem:
         return TimelineItem(timeline_item=self.timeline.CreateCompoundClip(timeline_items, clipinfo))
 
+    #BUG timelineitems should be origin resolve timelineitem
     def create_fusion_clip(self, timeline_items: List[TimelineItem]) -> TimelineItem:
         return TimelineItem(timeline_item=self.timeline.CreateFusionClip(timeline_items))
 
@@ -67,8 +69,8 @@ class Timeline():
     def duplicate_timeline(self, timeline_name: str):
         return Timeline(timeline=self.timeline.DuplicateTimeline(timeline_name))
 
-    # TODO export_type in bmd.py
-    #BUG mail bmd about this function
+    #TODO export_type in bmd.py
+    #TODO mail bmd about this function
     def export(self, file_name: str, export_type, export_subtype=None) -> bool:
         return self.timeline.Export(file_name, export_type, export_subtype)
 

@@ -55,7 +55,7 @@ class TimelineItem():
 
     def clear_flags(self, color) -> bool:
         return self.timeline_item.ClearFlags(color)
-
+    #BUG fix timelineitem list input(to origin resolve timelineitem)
     def copy_grades(self, target_timeline_items: List['TimelineItem']) -> bool:
         timeline_item_list = []
         for timeline_item in target_timeline_items:
