@@ -68,7 +68,7 @@ class Timeline():
         return Timeline(timeline=self.timeline.DuplicateTimeline(timeline_name))
 
     # TODO export_type in bmd.py
-    # TODO mail bmd about this function
+    #BUG mail bmd about this function
     def export(self, file_name: str, export_type, export_subtype=None) -> bool:
         return self.timeline.Export(file_name, export_type, export_subtype)
 
