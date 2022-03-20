@@ -1,6 +1,8 @@
 
 
 from typing import List
+from pybmd.gallery import Gallery
+from pybmd.media_pool import MediaPool
 
 from pybmd.timeline import Timeline
 
@@ -43,12 +45,12 @@ class Project():
 
     def get_current_timeline(self):
         return Timeline(timeline=self.project.GetCurrentTimeline())
-
-    def get_gallery(self):
-        pass  # TODO return Gallery Class
-
-    def get_media_pool(self):
-        pass  # TODO return MediaPool Class
+    
+    def get_gallery(self,) -> Gallery:
+        return Gallery(self.project.GetGallery())
+    
+    def get_media_pool(self) -> MediaPool:
+        return MediaPool(self.project.GetMediaPool())
 
     def get_name(self) -> str:
         return self.project.GetName()
