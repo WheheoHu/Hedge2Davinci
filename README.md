@@ -5,6 +5,11 @@ Hedge script to import footage in hedge offload task to Davinci Resolve and crea
 ## REQUEST
 - Work on Mac **Only**
 - Python 3.6
+- package `pybmd`:
+  ```
+  pip install pybmd
+  ```
+  
 
 
 ## How to Use
