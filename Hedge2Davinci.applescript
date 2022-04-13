@@ -23,12 +23,17 @@ end if
 if runningFromHedge("FileCopyCompleted") then
     set FileCopyCompleted_destinationPath to "{FileCopyCompleted_destinationPath}"
     set FileCopyCompleted_sourceInfo to "{FileCopyCompleted_sourceInfo}"
-    set Counter to "{Counter}"
     set FileCopyCompleted_sourcePaths to "{FileCopyCompleted_sourcePaths}"
+    set FileCopyCompleted_presetName to "{FileCopyCompleted_presetName}"
 end if
 
+tell application "JSON Helper"
+    set json to read JSON from FileCopyCompleted_sourceInfo
+end tell
 
-
+    set Counter to |Counter| of json
+    set Date to |Date| of json
+    set Daycount to |Daycount| of json
 
 if FileCopyCompleted_destinationPath  start with sourceVolumePath then
     display dialog (do shell script "python3 "&pythonScript&" -vP "&FileCopyCompleted_destinationPath) with title "Davinci Go"
@@ -37,14 +42,3 @@ else
             &"Source Volume is: "&sourceVolumePath&"\n"¬
             &"Footage Path is: "&FileCopyCompleted_destinationPath&"\n" with title "No Match Path"
 end if
-
-
-on runningFromHedge(theEvent)
-	if theEvent is "FileCopyCompleted" then
-		if "{FileCopyCompleted_state}" is "Success" then
-			return true
-		else
-			return false
-		end if
-	end if
-end runningFromHedge

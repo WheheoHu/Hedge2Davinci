@@ -5,3 +5,6 @@
 *.pyc
 
 test.py
+file_copy_log
+test.applescript
+test.scpt

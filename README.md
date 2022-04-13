@@ -4,7 +4,8 @@ Hedge script to import footage in hedge offload task to Davinci Resolve and crea
 
 ## REQUEST
 - Work on Mac **Only**
-- Python 3.6
+- Need to have [JSON Helper](https://www.mousedown.net/software/JSONHelper.html) installed in your system(to handle JSON string)
+- Python **3.6**
 - package `pybmd`:
   ```
   pip install pybmd
