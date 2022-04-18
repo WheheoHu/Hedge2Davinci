@@ -4,8 +4,6 @@ set pythonScript to "/Users/wheheohu/Code/Hedge2Davinci/Hedge2Davinci.py"
 set sourceVolumePath to "/"
 ## if paths not set , pick file to continue
 --
-set FileCopyCompleted_destinationPath to ""
-
 
 if pythonScript is "" then
     tell application "Finder"
@@ -20,25 +18,33 @@ if sourceVolumePath is "" then
 end if
 
     
-if runningFromHedge("FileCopyCompleted") then
-    set FileCopyCompleted_destinationPath to "{FileCopyCompleted_destinationPath}"
-    set FileCopyCompleted_sourceInfo to "{FileCopyCompleted_sourceInfo}"
-    set FileCopyCompleted_sourcePaths to "{FileCopyCompleted_sourcePaths}"
-    set FileCopyCompleted_presetName to "{FileCopyCompleted_presetName}"
-end if
+
+set FileCopyCompleted_destinationPath to "{FileCopyCompleted_destinationPath}"
+set FileCopyCompleted_sourceInfo to "{FileCopyCompleted_sourceInfo}"
+set FileCopyCompleted_sourcePaths to "{FileCopyCompleted_sourcePaths}"
+set FileCopyCompleted_presetName to "{FileCopyCompleted_presetName}"
+
 
 tell application "JSON Helper"
     set json to read JSON from FileCopyCompleted_sourceInfo
+    set Counter to |Counter| of json
+    set DateName to |Date| of json
+    set Daycount to |Daycount| of json
 end tell
 
-    set Counter to |Counter| of json
-    set Date to |Date| of json
-    set Daycount to |Daycount| of json
+--display alert "DEBUG: " & "Counter: " & Counter & " DateName: " & DateName & " Daycount: " & Daycount
+--display dialog(do shell script "/Users/wheheohu/.pyenv/shims/python -V") with title "DEBUG"
 
 if FileCopyCompleted_destinationPath  start with sourceVolumePath then
-    display dialog (do shell script "python3 "&pythonScript&" -vP "&FileCopyCompleted_destinationPath) with title "Davinci Go"
+    display dialog (do shell script "/Users/wheheohu/.pyenv/shims/python "&pythonScriptÂ
+        &" -vP "&FileCopyCompleted_destinationPathÂ
+        &" -tN "&FileCopyCompleted_presetNameÂ
+        &" -dC "&DaycountÂ
+        &" -d "&DateNameÂ
+        &" -rC "&Counter)Â
+        with title "Davinci Go"
 else
-    display dialog "No Match Path \n"Â¬
-            &"Source Volume is: "&sourceVolumePath&"\n"Â¬
+    display dialog "No Match Path \n"Â
+            &"Source Volume is: "&sourceVolumePath&"\n"Â
             &"Footage Path is: "&FileCopyCompleted_destinationPath&"\n" with title "No Match Path"
 end if
